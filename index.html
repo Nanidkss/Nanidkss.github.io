@@ -154,188 +154,31 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .shots-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .32fr); gap: 12px; align-items: start }
 .tall { max-height: 520px; overflow: auto }
 
-/* Ventana de app (las demos tienen la paleta de cada producto, como una captura) */
-.win { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #fff; color: #0F172A; font: 400 13px/1.45 var(--f-body) }
-.win .bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #F1F4F8; border-bottom: 1px solid #E2E8F0 }
-.win .bar i { width: 10px; height: 10px; border-radius: 50%; background: #CBD5E1 }
-.win .bar i:nth-child(1) { background: #F87171 } .win .bar i:nth-child(2) { background: #FBBF24 } .win .bar i:nth-child(3) { background: #34D399 }
-.win .bar span { margin-left: 8px; font: 500 11.5px var(--f-mono); color: #64748B; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.win { color-scheme: light }
-.win button { font: inherit; cursor: pointer; color: inherit }
-.win select { color: inherit; background: #fff }
-.win .ghost { color: #94A3B8; font-size: 12px }
-
-/* Movit */
-.mv { --mv: #FACC15; --mv-ink: #1E293B; }
-.mv-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1px solid #E2E8F0 }
-.mv-kpis div { padding: 10px 12px; border-right: 1px solid #E2E8F0 }
-.mv-kpis div:last-child { border-right: 0 }
-.mv-kpis b { display: block; font: 700 20px var(--f-display) }
-.mv-kpis small { color: #64748B; font-size: 11px }
-.mv-body { display: grid; grid-template-columns: 220px minmax(0, 1fr); height: 380px }
-.mv-list { border-right: 1px solid #E2E8F0; overflow: auto; background: #FAFBFC }
-.mv-tabs { display: flex; border-bottom: 1px solid #E2E8F0; position: sticky; top: 0; background: #FAFBFC }
-.mv-tabs button { flex: 1; padding: 8px 4px; border: 0; background: none; color: #64748B; font-size: 12px; border-bottom: 2px solid transparent }
-.mv-tabs button.on { color: #0F172A; border-bottom-color: var(--mv); font-weight: 600 }
-.mv-item { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 8px; padding: 10px; border-bottom: 1px solid #EEF2F6; cursor: pointer; align-items: center; width: 100%; text-align: left; border-left: 0; border-right: 0; border-top: 0; background: none }
-.mv-item:hover, .mv-item.sel { background: #FEF9C3 }
-.mv-item .av { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font: 700 11px var(--f-body); color: #fff }
-.mv-item b { display: block; font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.mv-item small { display: block; color: #64748B; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
-.mv-item em { font: normal 500 10.5px var(--f-mono); color: #B45309 }
-.mv-item.new { animation: mvIn .6s ease }
-@keyframes mvIn { from { background: #FDE68A } to { background: transparent } }
-.mv-chat { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; min-width: 0 }
-.mv-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 9px 12px; border-bottom: 1px solid #E2E8F0; flex-wrap: wrap }
-.mv-head b { font-size: 13px }
-.mv-head small { color: #64748B; font-size: 11.5px; display: block }
-.mv-actions { display: flex; gap: 6px; flex-wrap: wrap }
-.mv-actions button { padding: 5px 10px; border-radius: 7px; border: 1px solid #E2E8F0; background: #fff; font-size: 12px }
-.mv-actions button.go { background: var(--mv); border-color: var(--mv); font-weight: 600 }
-.mv-actions button:disabled { opacity: .45; cursor: default }
-.mv-msgs { overflow: auto; padding: 12px; display: flex; flex-direction: column; gap: 6px; background: #F8FAFC }
-.bub { max-width: 80%; padding: 7px 10px; border-radius: 10px; font-size: 12.5px; line-height: 1.4 }
-.bub.u { background: #fff; border: 1px solid #E2E8F0; align-self: flex-start }
-.bub.b { background: #F1F5F9; color: #475569; align-self: flex-start; font-style: italic }
-.bub.a { background: #FEF08A; align-self: flex-end }
-.bub.sys { align-self: center; background: #E0E7FF; color: #3730A3; font: 500 11px var(--f-mono); border-radius: 999px; padding: 4px 10px }
-.mv-foot { display: flex; gap: 6px; padding: 8px; border-top: 1px solid #E2E8F0; flex-wrap: wrap }
-.mv-foot button { padding: 5px 9px; border-radius: 999px; border: 1px solid #E2E8F0; background: #fff; font-size: 11.5px }
-.mv-foot button:disabled { opacity: .4; cursor: default }
-.mv-empty { display: grid; place-items: center; color: #94A3B8; height: 100%; text-align: center; padding: 20px }
-.mv-transfer { display: flex; gap: 6px; align-items: center; padding: 8px; background: #EEF2FF; border-top: 1px solid #C7D2FE; flex-wrap: wrap; font-size: 12px }
-.mv-transfer select { font: inherit; padding: 4px; border-radius: 6px; border: 1px solid #C7D2FE }
-@media (max-width: 560px) { .mv-body { grid-template-columns: minmax(0, 1fr); height: auto } .mv-list { max-height: 180px; border-right: 0; border-bottom: 1px solid #E2E8F0 } .mv-chat { height: 340px } .mv-kpis b { font-size: 16px } }
-
-/* Vozia */
-.vz { --vz: #6D28D9 }
-.vz-pipe { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid #EDE9FE; flex-wrap: wrap; background: #FAF5FF }
-.vz-pipe span { font: 500 11px var(--f-mono); padding: 4px 8px; border-radius: 6px; background: #fff; border: 1px solid #E9D5FF; color: #7C3AED; transition: background .2s, color .2s }
-.vz-pipe span.on { background: var(--vz); color: #fff; border-color: var(--vz) }
-.vz-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); height: 360px }
-.vz-talk { padding: 12px; overflow: auto; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid #EDE9FE }
-.vz-src { padding: 12px; overflow: auto; background: #FCFAFF }
-.vz-src h4 { margin: 0 0 8px; font: 600 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #7C3AED }
-.vz-card { border: 1px solid #E9D5FF; border-radius: 8px; padding: 8px 10px; background: #fff; margin-bottom: 8px; font-size: 12px }
-.vz-card b { display: flex; justify-content: space-between; gap: 8px; font-size: 12px }
-.vz-card b em { font: normal 500 11px var(--f-mono); color: #15803D }
-.vz-none { border: 1px dashed #FCA5A5; background: #FEF2F2; color: #B91C1C; border-radius: 8px; padding: 8px 10px; font-size: 12px }
-.line { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 8px; font-size: 12.5px }
-.line b { font: 600 11px var(--f-mono); color: #94A3B8; padding-top: 2px }
-.line.ag b { color: #7C3AED }
-.tag-x { display: inline-block; font: 600 10.5px var(--f-mono); color: #B91C1C; background: #FEE2E2; padding: 2px 6px; border-radius: 4px; margin-right: 4px }
-.vz-q { display: flex; gap: 6px; padding: 10px; border-top: 1px solid #EDE9FE; flex-wrap: wrap }
-.vz-q button { padding: 6px 10px; border-radius: 8px; border: 1px solid #DDD6FE; background: #fff; color: #5B21B6; font-size: 12px; text-align: left }
-.vz-q button:disabled { opacity: .45; cursor: default }
-.vz-stats { display: flex; gap: 14px; padding: 8px 12px; border-top: 1px solid #EDE9FE; font: 500 11px var(--f-mono); color: #64748B; flex-wrap: wrap }
-.caret::after { content: "▍"; color: #7C3AED; animation: blink 1s steps(1) infinite }
-@keyframes blink { 50% { opacity: 0 } }
-@media (max-width: 560px) { .vz-body { grid-template-columns: 1fr; height: auto } .vz-talk { height: 260px; border-right: 0; border-bottom: 1px solid #EDE9FE } .vz-src { max-height: 200px } }
-
-/* Métricas */
-.mt { --mt: #EAB308 }
-.mt-ctl { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid #E2E8F0; flex-wrap: wrap; align-items: center }
-.mt-ctl button { padding: 5px 10px; border-radius: 999px; border: 1px solid #E2E8F0; background: #fff; font-size: 12px }
-.mt-ctl button.on { background: #0F172A; color: #fff; border-color: #0F172A }
-.mt-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 12px }
-.mt-kpis div { border: 1px solid #E2E8F0; border-radius: 10px; padding: 9px 10px }
-.mt-kpis small { color: #64748B; font-size: 11px; display: block }
-.mt-kpis b { font: 700 20px var(--f-display) }
-.mt-kpis i { font: normal 500 11px var(--f-mono); color: #15803D; display: block }
-.mt-kpis i.bad { color: #B91C1C }
-.mt-chart { padding: 0 12px 4px }
-.mt-chart svg { width: 100%; height: auto; display: block }
-.mt-alert { margin: 4px 12px 12px; padding: 8px 10px; border-radius: 8px; font-size: 12px; display: flex; gap: 8px; align-items: flex-start }
-.mt-alert.ok { background: #F0FDF4; color: #166534 }
-.mt-alert.bad { background: #FEF2F2; color: #991B1B }
-@media (max-width: 560px) { .mt-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
-
-/* Turnix */
-.tx { --tx: #7C5CFC; --tx2: #22D3EE }
-.tx-ctl { display: flex; justify-content: space-between; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #E2E8F0; flex-wrap: wrap; align-items: center }
-.tx-ctl b { font-size: 13px }
-.tx-ctl button { padding: 6px 12px; border-radius: 8px; border: 0; background: linear-gradient(90deg, var(--tx), #5B8CFF); color: #fff; font-weight: 600; font-size: 12px }
-.tx-grid { overflow-x: auto; padding: 10px 12px }
-.tx-grid table { border-collapse: separate; border-spacing: 3px; font-size: 12px; min-width: 460px; width: 100%; table-layout: fixed }
-.tx-grid th { font: 500 11px var(--f-mono); color: #64748B; text-align: center; padding: 2px }
-.tx-grid th.n { text-align: left; color: #0F172A; font: 600 12px var(--f-body); white-space: nowrap }
-.tx-grid td { text-align: center; border-radius: 6px; padding: 6px 0; font: 600 11.5px var(--f-mono); transition: background .3s }
-.s-M { background: #E0F2FE; color: #0369A1 } .s-T { background: #EDE9FE; color: #6D28D9 } .s-N { background: #1E1B4B; color: #C7D2FE } .s-D { background: #F1F5F9; color: #94A3B8 }
-.tx-grid tr.cov td { font-size: 10.5px; padding: 4px 0 }
-.tx-grid td.okc { background: #DCFCE7; color: #166534 } .tx-grid td.bad { background: #FEE2E2; color: #B91C1C }
-.tx-leg { display: flex; gap: 10px; padding: 0 12px 12px; font-size: 11.5px; color: #64748B; flex-wrap: wrap }
-.tx-leg span { display: inline-flex; align-items: center; gap: 5px }
-.tx-leg i { width: 12px; height: 12px; border-radius: 3px; display: inline-block }
-
-/* Fluxia */
-.fx { --fx: #0EA5E9 }
-.fx-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); min-height: 330px }
-.fx-ops { padding: 12px; border-right: 1px solid #E2E8F0; display: grid; gap: 10px; align-content: start }
-.fx-ops h4, .fx-tv h4 { margin: 0; font: 600 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #64748B }
-.fx-kiosk { display: flex; gap: 6px; flex-wrap: wrap }
-.fx-kiosk button { padding: 6px 10px; border-radius: 8px; border: 1px solid #BAE6FD; background: #F0F9FF; color: #0369A1; font-size: 12px }
-.fx-mods { display: grid; gap: 6px }
-.fx-mod { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid #E2E8F0; border-radius: 8px }
-.fx-mod button { padding: 5px 10px; border-radius: 7px; border: 0; background: var(--fx); color: #fff; font-size: 12px; font-weight: 600 }
-.fx-mod button:disabled { background: #CBD5E1 }
-.fx-queue { font: 500 12px var(--f-mono); color: #334155; display: flex; flex-wrap: wrap; gap: 4px }
-.fx-queue span { padding: 3px 6px; border-radius: 5px; background: #F1F5F9 }
-.fx-tv { background: #0B1A2E; color: #E2E8F0; padding: 14px; display: grid; grid-template-rows: auto auto 1fr; gap: 10px }
-.fx-tv h4 { color: #7DD3FC }
-.fx-now { border-radius: 12px; background: linear-gradient(135deg, #0369A1, #0EA5E9); padding: 16px; text-align: center }
-.fx-now b { display: block; font: 800 44px/1 var(--f-display); letter-spacing: .02em }
-.fx-now span { font-size: 14px }
-.fx-now.flash { animation: fxf .9s ease 2 }
-@keyframes fxf { 50% { filter: brightness(1.5) } }
-.fx-hist { display: grid; gap: 4px; align-content: start; font: 500 13px var(--f-mono) }
-.fx-hist div { display: flex; justify-content: space-between; padding: 6px 8px; border-radius: 6px; background: rgba(255,255,255,.06) }
-.fx-clock { display: flex; justify-content: space-between; font: 500 11px var(--f-mono); color: #94A3B8 }
-@media (max-width: 560px) { .fx-body { grid-template-columns: 1fr } .fx-ops { border-right: 0; border-bottom: 1px solid #E2E8F0 } }
-
-/* FluxCore */
-.fc { --fc: #22D3EE; color-scheme: dark; background: #0E1626; color: #E2E8F0; border-color: #1E293B }
-.fc .bar { background: #0B1220; border-bottom-color: #1E293B }
-.fc .bar span { color: #64748B }
-.fc-head { padding: 12px 14px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; border-bottom: 1px solid #1E293B; align-items: center }
-.fc-head b { font: 700 15px var(--f-display) }
-.fc-head small { color: #94A3B8; display: block; font-size: 11.5px }
-.fc-head label { font-size: 12px; color: #94A3B8; display: flex; align-items: center; gap: 6px }
-.fc .fc-head select { font: inherit; background: #111C30; color: #E2E8F0; border: 1px solid #334155; border-radius: 6px; padding: 3px 6px }
-.fc-docs { padding: 10px 14px; display: grid; gap: 8px }
-.fc-doc { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 12px; align-items: center; padding: 10px 12px; border: 1px solid #1E293B; border-radius: 10px; background: #111C30 }
-.fc-doc b { font: 600 13px var(--f-body) }
-.fc-doc small { display: block; color: #94A3B8; font: 500 11px var(--f-mono) }
-.fc-steps { display: flex; gap: 4px; grid-column: 1 / -1; flex-wrap: wrap }
-.fc-steps span { font: 500 10.5px var(--f-mono); padding: 3px 7px; border-radius: 999px; background: #1E293B; color: #64748B }
-.fc-steps span.on { background: rgba(34,211,238,.15); color: var(--fc) }
-.fc-steps span.ret { background: rgba(248,113,113,.15); color: #FCA5A5 }
-.fc-btns { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end }
-.fc-btns button { padding: 5px 10px; border-radius: 7px; border: 1px solid #334155; background: transparent; color: #E2E8F0; font-size: 12px }
-.fc-btns button.go { background: var(--fc); color: #0B1220; border-color: var(--fc); font-weight: 600 }
-.fc-btns button:disabled { opacity: .35; cursor: default }
-.fc-log { margin: 0 14px 14px; padding: 8px 10px; border-radius: 8px; background: #0B1220; font: 500 11px/1.6 var(--f-mono); color: #94A3B8; max-height: 92px; overflow: auto }
-
-/* Horarios */
-.hr { --hr: #0284C7 }
-.hr-body { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr); min-height: 300px }
-.hr-me { padding: 14px; border-right: 1px solid #E2E8F0; display: grid; gap: 10px; align-content: start; background: #F8FBFE }
-.hr-me h4, .hr-sup h4 { margin: 0; font: 600 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #64748B }
-.hr-state { border-radius: 12px; padding: 14px; color: #fff; background: #16A34A; transition: background .3s }
-.hr-state b { display: block; font: 700 20px var(--f-display) }
-.hr-state span { font: 500 22px var(--f-mono) }
-.hr-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px }
-.hr-btns button { padding: 7px; border-radius: 8px; border: 1px solid #E2E8F0; background: #fff; font-size: 12px }
-.hr-btns button.on { border-color: #0F172A; font-weight: 600 }
-.hr-sup { padding: 14px; min-width: 0 }
-.hr-sup table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-top: 8px }
-.hr-sup td { padding: 7px 4px; border-bottom: 1px solid #F1F5F9 }
-.hr-sup td:last-child { text-align: right; font: 500 12px var(--f-mono) }
-.st { font: 600 10.5px var(--f-mono); padding: 3px 7px; border-radius: 999px; white-space: nowrap }
-.st-Disponible { background: #DCFCE7; color: #166534 } .st-Break { background: #FEF3C7; color: #92400E } .st-Almuerzo { background: #FFEDD5; color: #9A3412 } .st-Capacitación { background: #E0E7FF; color: #3730A3 }
-.hr-sup tr.ping td { animation: ping 1.2s ease }
-@keyframes ping { 0% { background: #E0F2FE } 100% { background: transparent } }
-.hr-ev { margin-top: 10px; font: 500 11px var(--f-mono); color: #0369A1; min-height: 1.5em }
-@media (max-width: 560px) { .hr-body { grid-template-columns: 1fr } .hr-me { border-right: 0; border-bottom: 1px solid #E2E8F0 } }
+/* Galería de capturas reales */
+.gal { min-width: 0 }
+.gal-main { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: var(--shadow); cursor: zoom-in; position: relative }
+.gal-main img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top center }
+.gal-main span { position: absolute; right: 10px; bottom: 10px; font: 500 11.5px var(--f-mono); padding: 5px 9px; border-radius: 6px; background: rgba(11,19,36,.78); color: #fff; opacity: 0; transition: opacity .2s }
+.gal-main:hover span, .gal-main:focus-visible span { opacity: 1 }
+.gal-cap { margin: 10px 0 0; font-size: 14px; color: var(--muted); min-height: 2.9em }
+.gal-cap b { color: var(--ink); font: 600 12px var(--f-mono); margin-right: 6px }
+.gal-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin }
+.gal-thumbs button { flex: 0 0 auto; width: 104px; padding: 0; border: 2px solid transparent; border-radius: 8px; overflow: hidden; background: var(--sunk); cursor: pointer; opacity: .62; transition: opacity .15s, border-color .15s }
+.gal-thumbs button:hover { opacity: 1 }
+.gal-thumbs button[aria-current="true"] { border-color: var(--accent); opacity: 1 }
+.gal-thumbs img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top }
+.real { display: inline-flex; align-items: center; gap: 6px; font: 500 11.5px var(--f-mono); color: var(--muted); margin-bottom: 10px }
+.real::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok) }
+dialog.lb { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; width: 100vw; height: 100vh; margin: 0 }
+dialog.lb::backdrop { background: rgba(5,10,20,.94) }
+dialog.lb[open] { background: rgba(5,10,20,.94) }
+.lb-wrap { position: absolute; inset: 0; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; padding: max(12px, env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) max(12px, env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); gap: 10px; color: #E7EEF7 }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; font: 500 12.5px var(--f-mono) }
+.lb-top button, .lb-nav button { font: 600 13px var(--f-body); color: #fff; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 8px 12px; cursor: pointer }
+.lb-img { overflow: auto; display: grid; place-items: start center; border-radius: 10px }
+.lb-img img { display: block; max-width: min(100%, 1600px); height: auto; border-radius: 8px }
+.lb-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px }
+.lb-nav p { margin: 0; font-size: 14px; text-align: center; flex: 1; color: #C9D5E6 }
 
 /* Cómo trabajo */
 .how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px }
@@ -405,7 +248,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <h1>Fernando José <span>Rivera Baños</span></h1>
         <p class="lead">Construyo, despliego y mantengo <strong>sistemas que la gente usa todos los días</strong>: la plataforma donde asesores atienden a ciudadanos por WhatsApp, un agente telefónico con IA, el BI de un contact center y el portal de un organismo de tránsito. Trabajo en MCC, proveedor tecnológico de VADATI, y desarrollo proyectos freelance.</p>
         <div class="cta">
-          <a class="btn primary" href="#proyectos">Ver proyectos y demos</a>
+          <a class="btn primary" href="#proyectos">Ver proyectos</a>
           <a class="btn" href="https://github.com/Nanidkss" target="_blank" rel="noopener">GitHub · Nanidkss</a>
           <a class="btn" href="#contacto">Contacto</a>
         </div>
@@ -445,7 +288,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
     <div class="section-head">
       <div class="eyebrow">Proyectos</div>
       <h2>Lo que he construido</h2>
-      <p>Las capturas marcadas como reales son páginas públicas de producción o vistas de ejemplo de cada producto. Las demos interactivas reproducen el comportamiento de cada sistema con datos ficticios, sin exponer información de usuarios ni código.</p>
+      <p>Cada sistema se levantó en un entorno aparte, con su propia base de datos llena de datos ficticios, para mostrar cómo es realmente por dentro sin exponer información de ciudadanos, clientes ni código. Toca una captura para verla en grande.</p>
     </div>
 
     <!-- MOVIT -->
@@ -462,32 +305,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Laravel 13</span><span>Alpine</span><span>Turbo</span><span>Reverb</span><span>MySQL 8</span><span>SendPulse API</span><span>Docker</span></div>
       </div>
-      <div class="stage" data-tabs>
-        <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">Demo interactiva</button><button role="tab" aria-selected="false" data-t="1">Captura real</button></div>
-        <div data-p="0">
-          <div class="win mv" id="mv">
-            <div class="bar"><i></i><i></i><i></i><span>movit · bandeja de asesores</span></div>
-            <div class="mv-kpis">
-              <div><b class="num" id="mvQ">0</b><small>En cola</small></div>
-              <div><b class="num" id="mvA">0</b><small>Atendiendo</small></div>
-              <div><b class="num" id="mvR">12</b><small>Resueltas hoy</small></div>
-              <div><b class="num" id="mvW">1:48</b><small>Espera promedio</small></div>
-            </div>
-            <div class="mv-body">
-              <div class="mv-list">
-                <div class="mv-tabs" role="tablist"><button class="on" data-f="cola">Cola</button><button data-f="mios">Míos</button><button data-f="cerrados">Cerrados</button></div>
-                <div id="mvList"></div>
-              </div>
-              <div class="mv-chat" id="mvChat"></div>
-            </div>
-          </div>
-          <p class="note">Datos ficticios. Llegan chats nuevos solos; toma uno, respóndelo, transfiérelo o ciérralo.</p>
-        </div>
-        <div data-p="1" hidden>
-          <div class="shot"><img src="img/movit-login.webp" alt="Pantalla de acceso de Mov_IT Corporativo con la mascota en forma de gota" loading="lazy" width="1400" height="875"></div>
-          <p class="note">movit.vadati.co · acceso (lo interno tiene datos de ciudadanos y no se muestra).</p>
-        </div>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/movit-02-tablero.webp&quot;, &quot;c&quot;: &quot;Tablero de la campaña: conversaciones, personas, atenciones humanas y satisfacción de los últimos 30 días&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-12-consola-chat.webp&quot;, &quot;c&quot;: &quot;Consola del asesor: sus chats a la izquierda, la conversación con el recorrido por el bot y el compositor&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-04-centro.webp&quot;, &quot;c&quot;: &quot;Centro de control: asesores en vivo, cupos, colas por área y acciones del supervisor&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-06-conversacion.webp&quot;, &quot;c&quot;: &quot;Historial de una conversación: lo que dijo el ciudadano, los flujos del bot y el asesor que atendió&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-07-rendimiento.webp&quot;, &quot;c&quot;: &quot;Rendimiento del equipo: espera promedio, SLA, duración y satisfacción por asesor&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-08-encuestas.webp&quot;, &quot;c&quot;: &quot;Encuestas de cierre: distribución por pregunta y evolución día a día&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-13-mi-dia.webp&quot;, &quot;c&quot;: &quot;Mi día: la vista de la asesora con su estado, cupo y calificaciones recientes&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/movit-03-tablero-full.webp&quot;, &quot;c&quot;: &quot;Tablero completo: tráfico por hora, resultados del bot, flujos y menús más usados&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1925}, {&quot;s&quot;: &quot;img/g/movit-14-tablero-oscuro.webp&quot;, &quot;c&quot;: &quot;Modo oscuro&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/movit-login.webp&quot;, &quot;c&quot;: &quot;Acceso a la plataforma&quot;, &quot;w&quot;: 1400, &quot;h&quot;: 875}]" data-nombre="Movit"><div class="real">Capturas reales · datos ficticios · 10 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/movit-02-tablero.webp" alt="Tablero de la campaña: conversaciones, personas, atenciones humanas y satisfacción de los últimos 30 días" width="1600" height="1000"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/10</b>Tablero de la campaña: conversaciones, personas, atenciones humanas y satisfacción de los últimos 30 días</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Tablero de la campaña: conversaciones, personas, atenciones humanas y satisfacción de los últimos 30 días" aria-current="true"><img src="img/t/movit-02-tablero.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Consola del asesor: sus chats a la izquierda, la conversación con el recorrido por el bot y el compositor"><img src="img/t/movit-12-consola-chat.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Centro de control: asesores en vivo, cupos, colas por área y acciones del supervisor"><img src="img/t/movit-04-centro.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Historial de una conversación: lo que dijo el ciudadano, los flujos del bot y el asesor que atendió"><img src="img/t/movit-06-conversacion.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Rendimiento del equipo: espera promedio, SLA, duración y satisfacción por asesor"><img src="img/t/movit-07-rendimiento.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Encuestas de cierre: distribución por pregunta y evolución día a día"><img src="img/t/movit-08-encuestas.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Mi día: la vista de la asesora con su estado, cupo y calificaciones recientes"><img src="img/t/movit-13-mi-dia.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="7" aria-label="Captura 8: Tablero completo: tráfico por hora, resultados del bot, flujos y menús más usados"><img src="img/t/movit-03-tablero-full.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="8" aria-label="Captura 9: Modo oscuro"><img src="img/t/movit-14-tablero-oscuro.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="9" aria-label="Captura 10: Acceso a la plataforma"><img src="img/t/movit-login.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- VOZIA -->
@@ -504,26 +322,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Laravel 13</span><span>Vapi</span><span>LLM en streaming (SSE)</span><span>RAG</span><span>SIP / WebRTC</span><span>Electron</span></div>
       </div>
-      <div class="stage" data-tabs>
-        <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">Demo interactiva</button><button role="tab" aria-selected="false" data-t="1">Captura real</button></div>
-        <div data-p="0">
-          <div class="win vz">
-            <div class="bar"><i></i><i></i><i></i><span>vozia · simulador de llamada</span></div>
-            <div class="vz-pipe" id="vzPipe"><span data-s="stt">Voz → texto</span><span data-s="kb">Búsqueda en manual</span><span data-s="llm">Modelo (streaming)</span><span data-s="tts">Texto → voz</span></div>
-            <div class="vz-body">
-              <div class="vz-talk" id="vzTalk"><div class="line"><b>SISTEMA</b><span class="ghost">Elige una pregunta abajo para simular una llamada.</span></div></div>
-              <div class="vz-src"><h4>Fuentes recuperadas</h4><div id="vzSrc"><p class="ghost">Aquí aparece lo que el agente puede usar para responder.</p></div></div>
-            </div>
-            <div class="vz-q" id="vzQ"></div>
-            <div class="vz-stats" id="vzStats"><span>latencia —</span><span>turnos 0</span><span>transferencias 0</span></div>
-          </div>
-          <p class="note">Base de conocimiento de ejemplo; las respuestas no son información oficial.</p>
-        </div>
-        <div data-p="1" hidden>
-          <div class="shot"><img src="img/vozia-login.webp" alt="Acceso al panel de Vozia: Atención telefónica con inteligencia artificial" loading="lazy" width="1400" height="875"></div>
-          <p class="note">Panel de Vozia · acceso.</p>
-        </div>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/vozia-01-inicio.webp&quot;, &quot;c&quot;: &quot;Panel de la línea: resolución automática, comprensión al primer intento, escalamiento y satisfacción&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-03-llamada.webp&quot;, &quot;c&quot;: &quot;Detalle de una llamada: transcripción, resumen y las fuentes que usó el modelo en cada turno&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-04-llamada-transferida.webp&quot;, &quot;c&quot;: &quot;Llamada transferida: sin fuentes en la base de conocimiento, el agente pasa a un humano&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-02-llamadas.webp&quot;, &quot;c&quot;: &quot;Registro de llamadas con intención, resultado, encuesta, duración y costo&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-05-encuestas.webp&quot;, &quot;c&quot;: &quot;Encuesta de cierre por voz&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-06-conocimiento.webp&quot;, &quot;c&quot;: &quot;Base de conocimiento por secretaría con buscador de prueba&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-08-operador.webp&quot;, &quot;c&quot;: &quot;Consola de operador: integración con la central telefónica&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/vozia-12-inicio-oscuro.webp&quot;, &quot;c&quot;: &quot;Modo oscuro&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="Vozia"><div class="real">Capturas reales · datos ficticios · 8 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/vozia-01-inicio.webp" alt="Panel de la línea: resolución automática, comprensión al primer intento, escalamiento y satisfacción" width="1600" height="1000" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/8</b>Panel de la línea: resolución automática, comprensión al primer intento, escalamiento y satisfacción</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Panel de la línea: resolución automática, comprensión al primer intento, escalamiento y satisfacción" aria-current="true"><img src="img/t/vozia-01-inicio.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Detalle de una llamada: transcripción, resumen y las fuentes que usó el modelo en cada turno"><img src="img/t/vozia-03-llamada.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Llamada transferida: sin fuentes en la base de conocimiento, el agente pasa a un humano"><img src="img/t/vozia-04-llamada-transferida.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Registro de llamadas con intención, resultado, encuesta, duración y costo"><img src="img/t/vozia-02-llamadas.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Encuesta de cierre por voz"><img src="img/t/vozia-05-encuestas.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Base de conocimiento por secretaría con buscador de prueba"><img src="img/t/vozia-06-conocimiento.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Consola de operador: integración con la central telefónica"><img src="img/t/vozia-08-operador.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="7" aria-label="Captura 8: Modo oscuro"><img src="img/t/vozia-12-inicio-oscuro.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- MÉTRICAS -->
@@ -540,23 +339,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Laravel 13</span><span>Livewire 4</span><span>Tailwind</span><span>API Wolkvox</span><span>168 tests en MySQL 8</span></div>
       </div>
-      <div class="stage" data-tabs>
-        <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">Demo interactiva</button><button role="tab" aria-selected="false" data-t="1">Captura real</button></div>
-        <div data-p="0">
-          <div class="win mt">
-            <div class="bar"><i></i><i></i><i></i><span>nexus métricas · operaciones · hoy</span></div>
-            <div class="mt-ctl" id="mtCtl"></div>
-            <div class="mt-kpis" id="mtKpis"></div>
-            <div class="mt-chart" id="mtChart"></div>
-            <div id="mtAlert"></div>
-          </div>
-          <p class="note">Campañas y cifras ficticias. Cambia de campaña para ver cómo se evalúan los silencios.</p>
-        </div>
-        <div data-p="1" hidden>
-          <div class="shot"><img src="img/metricas-login.webp" alt="Página de acceso de la plataforma de métricas: Todo tu contact center, en una sola mirada" loading="lazy" width="1400" height="875"></div>
-          <p class="note">powerbi.vadati.co · acceso.</p>
-        </div>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/metricas-02-operaciones.webp&quot;, &quot;c&quot;: &quot;Dashboard de operaciones: eficiencia, productividad, abandono, ocupación, nivel de servicio y TMO&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-04-agentes.webp&quot;, &quot;c&quot;: &quot;Métricas por agente: llamadas, tiempos y AHT&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-08-pbx.webp&quot;, &quot;c&quot;: &quot;Estado de la central: prueba diaria de cada línea y alertas&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-01-global.webp&quot;, &quot;c&quot;: &quot;Inicio global con las áreas del negocio&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-10-ejecutivo.webp&quot;, &quot;c&quot;: &quot;Gerencia ejecutiva: presupuesto contra real&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-06-experiencia.webp&quot;, &quot;c&quot;: &quot;Experiencia: NPS, CSAT y esfuerzo del cliente&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-03-operaciones-full.webp&quot;, &quot;c&quot;: &quot;Dashboard de operaciones completo&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/metricas-13-oscuro.webp&quot;, &quot;c&quot;: &quot;Modo oscuro&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="Nexus Métricas"><div class="real">Capturas reales · datos ficticios · 8 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/metricas-02-operaciones.webp" alt="Dashboard de operaciones: eficiencia, productividad, abandono, ocupación, nivel de servicio y TMO" width="1600" height="1000" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/8</b>Dashboard de operaciones: eficiencia, productividad, abandono, ocupación, nivel de servicio y TMO</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Dashboard de operaciones: eficiencia, productividad, abandono, ocupación, nivel de servicio y TMO" aria-current="true"><img src="img/t/metricas-02-operaciones.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Métricas por agente: llamadas, tiempos y AHT"><img src="img/t/metricas-04-agentes.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Estado de la central: prueba diaria de cada línea y alertas"><img src="img/t/metricas-08-pbx.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Inicio global con las áreas del negocio"><img src="img/t/metricas-01-global.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Gerencia ejecutiva: presupuesto contra real"><img src="img/t/metricas-10-ejecutivo.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Experiencia: NPS, CSAT y esfuerzo del cliente"><img src="img/t/metricas-06-experiencia.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Dashboard de operaciones completo"><img src="img/t/metricas-03-operaciones-full.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="7" aria-label="Captura 8: Modo oscuro"><img src="img/t/metricas-13-oscuro.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- CTP -->
@@ -574,13 +357,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         <div class="stack"><span>Laravel 13</span><span>Tailwind 4</span><span>TipTap</span><span>Turbo</span><span>Vite</span></div>
         <a class="p-link" href="https://consorcioctp.com" target="_blank" rel="noopener">Visitar consorcioctp.com ↗</a>
       </div>
-      <div class="stage">
-        <div class="shots-2">
-          <div class="shot tall"><img src="img/ctp-inicio.webp" alt="Página de inicio del Consorcio Tránsito Palmira con la Ventanilla Ciudadana Virtual" loading="lazy" width="1400" height="1490"></div>
-          <div class="shot"><img src="img/ctp-movil.webp" alt="El mismo portal en un celular" loading="lazy" width="600" height="1298"></div>
-        </div>
-        <p class="note">Captura real del sitio público, escritorio y celular.</p>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/ctp-inicio.webp&quot;, &quot;c&quot;: &quot;Sitio público en producción: consorcioctp.com&quot;, &quot;w&quot;: 1400, &quot;h&quot;: 1490}, {&quot;s&quot;: &quot;img/ctp-movil.webp&quot;, &quot;c&quot;: &quot;El sitio en el celular&quot;, &quot;w&quot;: 600, &quot;h&quot;: 1298}, {&quot;s&quot;: &quot;img/g/ctp-01-panel.webp&quot;, &quot;c&quot;: &quot;Panel del CMS: noticias, trámites y actividad&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-03-editor.webp&quot;, &quot;c&quot;: &quot;Editor de noticias con bloques y guía de cada campo&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-04-portada.webp&quot;, &quot;c&quot;: &quot;Portada: pop-ups, carrusel y botones de la ventanilla virtual&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-06-media.webp&quot;, &quot;c&quot;: &quot;Biblioteca de medios con variantes WebP automáticas&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-05-tarifas.webp&quot;, &quot;c&quot;: &quot;Tarifas por trámite con importación desde Excel&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-07-tramites.webp&quot;, &quot;c&quot;: &quot;Trámites con requisitos y tarifas&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-10-perfiles.webp&quot;, &quot;c&quot;: &quot;Perfiles y permisos por pantalla y acción&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/ctp-09-personalizacion.webp&quot;, &quot;c&quot;: &quot;Personalización del panel y del sitio&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="Portal CTP"><div class="real">Capturas reales · datos ficticios · 10 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/ctp-inicio.webp" alt="Sitio público en producción: consorcioctp.com" width="1400" height="1490" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/10</b>Sitio público en producción: consorcioctp.com</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Sitio público en producción: consorcioctp.com" aria-current="true"><img src="img/t/ctp-inicio.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: El sitio en el celular"><img src="img/t/ctp-movil.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Panel del CMS: noticias, trámites y actividad"><img src="img/t/ctp-01-panel.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Editor de noticias con bloques y guía de cada campo"><img src="img/t/ctp-03-editor.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Portada: pop-ups, carrusel y botones de la ventanilla virtual"><img src="img/t/ctp-04-portada.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Biblioteca de medios con variantes WebP automáticas"><img src="img/t/ctp-06-media.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Tarifas por trámite con importación desde Excel"><img src="img/t/ctp-05-tarifas.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="7" aria-label="Captura 8: Trámites con requisitos y tarifas"><img src="img/t/ctp-07-tramites.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="8" aria-label="Captura 9: Perfiles y permisos por pantalla y acción"><img src="img/t/ctp-10-perfiles.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="9" aria-label="Captura 10: Personalización del panel y del sitio"><img src="img/t/ctp-09-personalizacion.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- CLOUD -->
@@ -597,17 +374,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Flutter</span><span>Laravel</span><span>Reverb</span><span>GitHub Actions</span><span>Inno Setup</span></div>
       </div>
-      <div class="stage" data-tabs>
-        <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">La app</button><button role="tab" aria-selected="false" data-t="1">Sitio de descarga</button></div>
-        <div data-p="0">
-          <div class="shot"><img src="img/cloud-app.webp" alt="Ventana de Nexus Cloud con carpetas y archivos, uno marcado como bloqueado porque alguien lo está editando" loading="lazy" width="1126" height="725"></div>
-          <p class="note">Captura real con la empresa de ejemplo del producto.</p>
-        </div>
-        <div data-p="1" hidden>
-          <div class="shot"><img src="img/cloud-inicio.webp" alt="Página de descarga: Tus archivos, conectados en todos tus equipos" loading="lazy" width="1400" height="875"></div>
-          <p class="note">cloud.slcsas.com</p>
-        </div>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/cloud-app.webp&quot;, &quot;c&quot;: &quot;La app de escritorio (Windows y macOS) con la empresa de ejemplo del producto&quot;, &quot;w&quot;: 1126, &quot;h&quot;: 725}, {&quot;s&quot;: &quot;img/cloud-inicio.webp&quot;, &quot;c&quot;: &quot;Sitio de descarga de la app&quot;, &quot;w&quot;: 1400, &quot;h&quot;: 875}, {&quot;s&quot;: &quot;img/g/cloud-03-carpeta.webp&quot;, &quot;c&quot;: &quot;Explorador web: un archivo bloqueado porque otra persona lo está editando&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/cloud-06-equipos.webp&quot;, &quot;c&quot;: &quot;Equipos de la empresa sincronizando y su última vuelta&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/cloud-01-dashboard.webp&quot;, &quot;c&quot;: &quot;Panel de la empresa: archivos, almacenamiento y actividad&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/cloud-07-actividad.webp&quot;, &quot;c&quot;: &quot;Actividad: quién subió, editó o compartió cada archivo&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/cloud-05-usuarios.webp&quot;, &quot;c&quot;: &quot;Usuarios y roles de la empresa&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="Nexus Cloud"><div class="real">Capturas reales · datos ficticios · 7 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/cloud-app.webp" alt="La app de escritorio (Windows y macOS) con la empresa de ejemplo del producto" width="1126" height="725" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/7</b>La app de escritorio (Windows y macOS) con la empresa de ejemplo del producto</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: La app de escritorio (Windows y macOS) con la empresa de ejemplo del producto" aria-current="true"><img src="img/t/cloud-app.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Sitio de descarga de la app"><img src="img/t/cloud-inicio.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Explorador web: un archivo bloqueado porque otra persona lo está editando"><img src="img/t/cloud-03-carpeta.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Equipos de la empresa sincronizando y su última vuelta"><img src="img/t/cloud-06-equipos.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Panel de la empresa: archivos, almacenamiento y actividad"><img src="img/t/cloud-01-dashboard.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Actividad: quién subió, editó o compartió cada archivo"><img src="img/t/cloud-07-actividad.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Usuarios y roles de la empresa"><img src="img/t/cloud-05-usuarios.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- TURNIX -->
@@ -624,15 +391,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Laravel 13</span><span>Alpine</span><span>Tailwind</span><span>SSE</span><span>Excel / PDF</span></div>
       </div>
-      <div class="stage">
-        <div class="win tx">
-          <div class="bar"><i></i><i></i><i></i><span>turnix · línea ciudadana · semana <b id="txWeek">43</b></span></div>
-          <div class="tx-ctl"><b>Malla semanal</b><button type="button" id="txGen">Generar semana siguiente</button></div>
-          <div class="tx-grid"><table id="txTable"></table></div>
-          <div class="tx-leg"><span><i class="s-M"></i>Mañana 6–14</span><span><i class="s-T"></i>Tarde 14–22</span><span><i class="s-N"></i>Noche 22–6</span><span><i class="s-D"></i>Descanso</span></div>
-        </div>
-        <p class="note">Demo interactiva con agentes ficticios. Toca una celda para cambiar el turno: la última fila valida que cada día tenga 2 en la mañana, 2 en la tarde y 1 de noche.</p>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/turnix-04-malla.webp&quot;, &quot;c&quot;: &quot;Malla semanal de una línea: turnos por asesor y mapa de cobertura 24/7&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/turnix-05-malla-full.webp&quot;, &quot;c&quot;: &quot;Malla completa con cobertura por franja y presencia por hora&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/turnix-08-podio-tv.webp&quot;, &quot;c&quot;: &quot;Podio en el televisor de la sala: ranking del día en vivo&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/turnix-01-panel.webp&quot;, &quot;c&quot;: &quot;Panel: líneas, asesores y huecos de cobertura&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/turnix-03-linea.webp&quot;, &quot;c&quot;: &quot;Mallas de una línea: generar desde el historial o importar Excel&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/turnix-06-operadores.webp&quot;, &quot;c&quot;: &quot;Asesores por línea&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/turnix-07-podio-panel.webp&quot;, &quot;c&quot;: &quot;Configuración del Podio: pantallas, agentes y fórmula&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="Turnix"><div class="real">Capturas reales · datos ficticios · 7 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/turnix-04-malla.webp" alt="Malla semanal de una línea: turnos por asesor y mapa de cobertura 24/7" width="1600" height="1000" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/7</b>Malla semanal de una línea: turnos por asesor y mapa de cobertura 24/7</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Malla semanal de una línea: turnos por asesor y mapa de cobertura 24/7" aria-current="true"><img src="img/t/turnix-04-malla.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Malla completa con cobertura por franja y presencia por hora"><img src="img/t/turnix-05-malla-full.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Podio en el televisor de la sala: ranking del día en vivo"><img src="img/t/turnix-08-podio-tv.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Panel: líneas, asesores y huecos de cobertura"><img src="img/t/turnix-01-panel.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Mallas de una línea: generar desde el historial o importar Excel"><img src="img/t/turnix-03-linea.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Asesores por línea"><img src="img/t/turnix-06-operadores.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Configuración del Podio: pantallas, agentes y fórmula"><img src="img/t/turnix-07-podio-panel.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- FLUXIA -->
@@ -649,27 +408,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Laravel 13</span><span>Alpine</span><span>Tailwind 4</span><span>API REST</span></div>
       </div>
-      <div class="stage">
-        <div class="win fx">
-          <div class="bar"><i></i><i></i><i></i><span>fluxia · sede centro</span></div>
-          <div class="fx-body">
-            <div class="fx-ops">
-              <h4>Kiosco · pedir turno</h4>
-              <div class="fx-kiosk" id="fxKiosk"></div>
-              <h4>En espera</h4>
-              <div class="fx-queue" id="fxQueue"></div>
-              <h4>Módulos</h4>
-              <div class="fx-mods" id="fxMods"></div>
-            </div>
-            <div class="fx-tv" aria-live="polite">
-              <div class="fx-clock"><span>Sala de espera</span><span id="fxClock">--:--</span></div>
-              <div class="fx-now" id="fxNow"><b>—</b><span>Esperando llamado</span></div>
-              <div class="fx-hist" id="fxHist"></div>
-            </div>
-          </div>
-        </div>
-        <p class="note">Demo interactiva: pide turnos en el kiosco y llámalos desde un módulo; la pantalla de la sala se actualiza.</p>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/fluxia-05-gestionar.webp&quot;, &quot;c&quot;: &quot;Gestión de ventanilla: turno en atención y fila de espera&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-11-tv.webp&quot;, &quot;c&quot;: &quot;Visualizador de la sala de espera con los turnos llamados&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-02-citas.webp&quot;, &quot;c&quot;: &quot;Listado de citas del día por sede y trámite&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-06-turnero.webp&quot;, &quot;c&quot;: &quot;Turnero: citas de hoy para entregar turno&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-01-inicio.webp&quot;, &quot;c&quot;: &quot;Inicio del gestor&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-10-publico.webp&quot;, &quot;c&quot;: &quot;Agendamiento público para el ciudadano&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-12-reporte-sedes.webp&quot;, &quot;c&quot;: &quot;Reporte por sedes&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxia-08-sedes.webp&quot;, &quot;c&quot;: &quot;Sedes y su configuración&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="Fluxia"><div class="real">Capturas reales · datos ficticios · 8 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/fluxia-05-gestionar.webp" alt="Gestión de ventanilla: turno en atención y fila de espera" width="1600" height="1000" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/8</b>Gestión de ventanilla: turno en atención y fila de espera</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Gestión de ventanilla: turno en atención y fila de espera" aria-current="true"><img src="img/t/fluxia-05-gestionar.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Visualizador de la sala de espera con los turnos llamados"><img src="img/t/fluxia-11-tv.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Listado de citas del día por sede y trámite"><img src="img/t/fluxia-02-citas.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Turnero: citas de hoy para entregar turno"><img src="img/t/fluxia-06-turnero.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Inicio del gestor"><img src="img/t/fluxia-01-inicio.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Agendamiento público para el ciudadano"><img src="img/t/fluxia-10-publico.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Reporte por sedes"><img src="img/t/fluxia-12-reporte-sedes.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="7" aria-label="Captura 8: Sedes y su configuración"><img src="img/t/fluxia-08-sedes.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- FLUXCORE -->
@@ -686,26 +425,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Laravel 12</span><span>Bootstrap 5</span><span>Turbo</span><span>wkhtmltopdf</span></div>
       </div>
-      <div class="stage" data-tabs>
-        <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">Demo interactiva</button><button role="tab" aria-selected="false" data-t="1">Captura real</button></div>
-        <div data-p="0">
-          <div class="win fc">
-            <div class="bar"><i></i><i></i><i></i><span>fluxcore · operación OP-2026-0312</span></div>
-            <div class="fc-head">
-              <div><b>Barranquilla → Quito</b><small>Transportista de ejemplo S.A.S. · placa XYZ-123</small></div>
-              <label for="fcMci">Manifiestos
-                <select id="fcMci"><option>1</option><option selected>2</option><option>3</option></select></label>
-            </div>
-            <div class="fc-docs" id="fcDocs"></div>
-            <div class="fc-log" id="fcLog" aria-live="polite"></div>
-          </div>
-          <p class="note">Datos ficticios. Envía un documento a validación y mira cuándo recibe su número.</p>
-        </div>
-        <div data-p="1" hidden>
-          <div class="shot"><img src="img/fluxcore-login.webp" alt="Inicio de sesión del sistema de Soluciones Logísticas Confiables" loading="lazy" width="1400" height="875"></div>
-          <p class="note">operacion.slcsas.com · acceso.</p>
-        </div>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/fluxcore-01-dashboard.webp&quot;, &quot;c&quot;: &quot;Dashboard operativo con divisas en vivo y estados de las operaciones&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxcore-03-operacion.webp&quot;, &quot;c&quot;: &quot;Operación: CPIC con sus manifiestos y el formulario por secciones del documento oficial&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxcore-02-operaciones.webp&quot;, &quot;c&quot;: &quot;Gestión de operaciones con su estado de validación&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxcore-04-nueva-operacion.webp&quot;, &quot;c&quot;: &quot;Nueva operación: CPIC, MCI o DTAI&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxcore-09-reportes.webp&quot;, &quot;c&quot;: &quot;Reportes exportables a Excel y PDF&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxcore-11-vehiculos.webp&quot;, &quot;c&quot;: &quot;Flota: vehículos por transportista&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/fluxcore-06-aduanas.webp&quot;, &quot;c&quot;: &quot;Módulo de aduanas: importaciones y envío a la DIAN&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}]" data-nombre="FluxCore"><div class="real">Capturas reales · datos ficticios · 7 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/fluxcore-01-dashboard.webp" alt="Dashboard operativo con divisas en vivo y estados de las operaciones" width="1600" height="1000" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/7</b>Dashboard operativo con divisas en vivo y estados de las operaciones</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Dashboard operativo con divisas en vivo y estados de las operaciones" aria-current="true"><img src="img/t/fluxcore-01-dashboard.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Operación: CPIC con sus manifiestos y el formulario por secciones del documento oficial"><img src="img/t/fluxcore-03-operacion.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Gestión de operaciones con su estado de validación"><img src="img/t/fluxcore-02-operaciones.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Nueva operación: CPIC, MCI o DTAI"><img src="img/t/fluxcore-04-nueva-operacion.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Reportes exportables a Excel y PDF"><img src="img/t/fluxcore-09-reportes.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Flota: vehículos por transportista"><img src="img/t/fluxcore-11-vehiculos.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="6" aria-label="Captura 7: Módulo de aduanas: importaciones y envío a la DIAN"><img src="img/t/fluxcore-06-aduanas.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- HORARIOS -->
@@ -722,31 +442,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
         </ul>
         <div class="stack"><span>Flutter (Windows)</span><span>Laravel Reverb</span><span>Sanctum</span><span>Inno Setup</span></div>
       </div>
-      <div class="stage" data-tabs>
-        <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-t="0">Demo interactiva</button><button role="tab" aria-selected="false" data-t="1">Captura real</button></div>
-        <div data-p="0">
-          <div class="win hr">
-            <div class="bar"><i></i><i></i><i></i><span>nexus horarios · app de escritorio + panel del supervisor</span></div>
-            <div class="hr-body">
-              <div class="hr-me">
-                <h4>Mi estado · Paula R.</h4>
-                <div class="hr-state" id="hrState"><b>Disponible</b><span class="num" id="hrTime">00:00:00</span></div>
-                <div class="hr-btns" id="hrBtns"></div>
-              </div>
-              <div class="hr-sup">
-                <h4>Panel en vivo</h4>
-                <table id="hrTable"></table>
-                <div class="hr-ev" id="hrEv"></div>
-              </div>
-            </div>
-          </div>
-          <p class="note">Empleados ficticios. Cambia tu estado y mira cómo llega al panel del supervisor.</p>
-        </div>
-        <div data-p="1" hidden>
-          <div class="shot"><img src="img/horario-inicio.webp" alt="Página de Control de Ingreso: gestión operativa inteligente" loading="lazy" width="1400" height="875"></div>
-          <p class="note">horario.slcsas.com</p>
-        </div>
-      </div>
+      <div class="stage gal" data-gal="[{&quot;s&quot;: &quot;img/g/horarios-02-supervisor.webp&quot;, &quot;c&quot;: &quot;Monitoreo del supervisor: estado de cada empleado en vivo y alertas de SLA&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/horarios-01-dashboard.webp&quot;, &quot;c&quot;: &quot;Dashboard operativo: conectados, disponibles, ocupados y cumplimiento&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/horarios-03-reportes.webp&quot;, &quot;c&quot;: &quot;Reportes de adherencia y productividad&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/horarios-05-estados.webp&quot;, &quot;c&quot;: &quot;Configuración de estados productivos y no productivos&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/g/horarios-06-mallas.webp&quot;, &quot;c&quot;: &quot;Mallas de horario corporativas&quot;, &quot;w&quot;: 1600, &quot;h&quot;: 1000}, {&quot;s&quot;: &quot;img/horario-inicio.webp&quot;, &quot;c&quot;: &quot;Página de acceso&quot;, &quot;w&quot;: 1400, &quot;h&quot;: 875}]" data-nombre="Nexus Horarios"><div class="real">Capturas reales · datos ficticios · 6 pantallas</div><button type="button" class="gal-main" aria-label="Ampliar captura"><img src="img/g/horarios-02-supervisor.webp" alt="Monitoreo del supervisor: estado de cada empleado en vivo y alertas de SLA" width="1600" height="1000" loading="lazy"><span>Ampliar ⤢</span></button><p class="gal-cap"><b>1/6</b>Monitoreo del supervisor: estado de cada empleado en vivo y alertas de SLA</p><div class="gal-thumbs"><button type="button" data-i="0" aria-label="Captura 1: Monitoreo del supervisor: estado de cada empleado en vivo y alertas de SLA" aria-current="true"><img src="img/t/horarios-02-supervisor.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="1" aria-label="Captura 2: Dashboard operativo: conectados, disponibles, ocupados y cumplimiento"><img src="img/t/horarios-01-dashboard.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="2" aria-label="Captura 3: Reportes de adherencia y productividad"><img src="img/t/horarios-03-reportes.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="3" aria-label="Captura 4: Configuración de estados productivos y no productivos"><img src="img/t/horarios-05-estados.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="4" aria-label="Captura 5: Mallas de horario corporativas"><img src="img/t/horarios-06-mallas.webp" alt="" loading="lazy" width="160" height="100"></button><button type="button" data-i="5" aria-label="Captura 6: Página de acceso"><img src="img/t/horario-inicio.webp" alt="" loading="lazy" width="160" height="100"></button></div></div>
     </section>
 
     <!-- NEXUSTRACK -->
@@ -833,17 +529,16 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   </div>
 </footer>
 
+<dialog class="lb" id="lb" aria-label="Captura ampliada">
+  <div class="lb-wrap">
+    <div class="lb-top"><span></span><button type="button" data-cerrar>Cerrar ✕</button></div>
+    <div class="lb-img"><img alt=""></div>
+    <div class="lb-nav"><button type="button" data-ant>← Anterior</button><p></p><button type="button" data-sig>Siguiente →</button></div>
+  </div>
+</dialog>
+
 <script>
 (() => {
-  // ---------- Pestañas de cada escenario ----------
-  document.querySelectorAll('[data-tabs]').forEach(stage => {
-    const btns = stage.querySelectorAll('.tabs button');
-    btns.forEach(b => b.addEventListener('click', () => {
-      btns.forEach(x => x.setAttribute('aria-selected', x === b ? 'true' : 'false'));
-      stage.querySelectorAll('[data-p]').forEach(p => p.hidden = p.dataset.p !== b.dataset.t);
-    }));
-  });
-
   // ---------- Copiar contacto ----------
   document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => {
     const el = document.getElementById(b.dataset.copy);
@@ -879,262 +574,33 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-  // ---------- Movit ----------
-  (() => {
-    const colors = ['#0EA5E9', '#8B5CF6', '#F97316', '#10B981', '#EC4899', '#6366F1', '#14B8A6', '#EAB308'];
-    const people = [
-      ['Laura Méndez', 'WhatsApp', 'Multas', 'Hola, quiero saber si tengo comparendos pendientes'],
-      ['Carlos Ruiz', 'Telegram', 'Trámites', 'Buenas, ¿cómo agendo cita para renovar la licencia?'],
-      ['Andrea Pérez', 'Chat web', 'Accidentes', 'Tuve un choque sin heridos en la Cra 28, ¿qué hago?'],
-      ['Jhon Fontalvo', 'WhatsApp', 'Multas', 'Necesito el paz y salvo para vender la moto'],
-      ['María José Díaz', 'WhatsApp', 'Trámites', '¿Qué papeles piden para el traspaso?'],
-      ['Kevin Ortega', 'Telegram', 'Multas', 'Me llegó una fotomulta y no era yo el que manejaba'],
-      ['Sandra Polo', 'Chat web', 'Trámites', '¿Puedo pagar el impuesto vehicular en línea?'],
-      ['Luis Carrillo', 'WhatsApp', 'Accidentes', 'Quiero el informe del accidente del sábado'],
-    ];
-    const advisor = { Multas: 'Angélica (Multas)', Trámites: 'Lina (Trámites)', Accidentes: 'Diego (Accidentes)' };
-    let seq = 0, chats = [], filter = 'cola', sel = null, resolved = 12, transferMode = false;
-    const replies = { 'Saludo': '¡Hola! Te habla Paula, asesora del CTP. Con gusto te ayudo.', 'Pedir placa': '¿Me compartes la placa del vehículo, por favor?', 'Enlace de pago': 'Aquí tienes el enlace para pagar en línea: pagos.ejemplo.co/ctp', 'Despedida': 'Gracias por escribirnos. ¡Que tengas buen día!' };
-    const botIntro = m => ({ who: 'b', t: 'Mov_IT: Te comunico con un asesor del área de ' + m + '.' });
-    function add(initial) {
-      const p = people[seq % people.length]; seq++;
-      const c = { id: seq, name: p[0], ch: p[1], area: p[2], color: colors[seq % colors.length], state: 'cola', since: Date.now() - (initial ? Math.random() * 180000 : 0), fresh: !initial,
-        msgs: [{ who: 'u', t: p[3] }, botIntro(p[2])] };
-      chats.unshift(c); render();
-    }
-    const fmt = ms => { const s = Math.max(0, Math.floor(ms / 1000)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
-    function render() {
-      const q = chats.filter(c => c.state === 'cola'), a = chats.filter(c => c.state === 'mio');
-      $('mvQ').textContent = q.length; $('mvA').textContent = a.length; $('mvR').textContent = resolved;
-      const list = chats.filter(c => (filter === 'cola' && c.state === 'cola') || (filter === 'mios' && c.state === 'mio') || (filter === 'cerrados' && c.state === 'cerrado'));
-      $('mvList').innerHTML = list.length ? list.map(c => `<button class="mv-item${c.id === sel ? ' sel' : ''}${c.fresh ? ' new' : ''}" data-id="${c.id}">
-          <span class="av" style="background:${c.color}">${esc(c.name.split(' ').map(x => x[0]).join('').slice(0, 2))}</span>
-          <span style="min-width:0"><b>${esc(c.name)}</b><small>${esc(c.ch)} · ${esc(c.area)}</small></span>
-          <em>${c.state === 'cola' ? fmt(Date.now() - c.since) : c.state === 'mio' ? 'tuyo' : '★' + (c.score || 5)}</em></button>`).join('')
-        : `<div class="mv-empty" style="height:auto;padding:24px 12px">${filter === 'cola' ? 'No hay chats en cola' : filter === 'mios' ? 'Toma un chat de la cola' : 'Aún no cierras chats'}</div>`;
-      chats.forEach(c => c.fresh = false);
-      $('mvList').querySelectorAll('.mv-item').forEach(b => b.onclick = () => { sel = +b.dataset.id; transferMode = false; render(); });
-      renderChat();
-    }
-    function renderChat() {
-      const c = chats.find(x => x.id === sel), box = $('mvChat');
-      if (!c) { box.innerHTML = '<div class="mv-empty">Selecciona un chat de la lista</div>'; return; }
-      const mine = c.state === 'mio';
-      box.innerHTML = `<div class="mv-head"><div><b>${esc(c.name)}</b><small>${esc(c.ch)} · ${esc(c.area)}${c.state === 'cola' ? ' · esperando ' + fmt(Date.now() - c.since) : ''}</small></div>
-        <div class="mv-actions"><button class="go" data-a="tomar" ${c.state !== 'cola' ? 'disabled' : ''}>Tomar</button><button data-a="transferir" ${!mine ? 'disabled' : ''}>Transferir</button><button data-a="cerrar" ${!mine ? 'disabled' : ''}>Cerrar</button></div></div>
-        <div class="mv-msgs">${c.msgs.map(m => `<div class="bub ${m.who}">${esc(m.t)}</div>`).join('')}</div>
-        ${transferMode && mine ? `<div class="mv-transfer"><label for="mvTo">Pasar a</label><select id="mvTo">${Object.entries(advisor).filter(([k]) => k !== c.area).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select><select id="mvWhy" aria-label="Motivo"><option>Otra área</option><option>Fin de turno</option><option>Caso especial</option></select><button class="go" data-a="ok" style="padding:4px 10px;border-radius:6px;border:0;background:#6366F1;color:#fff">Transferir</button></div>`
-          : `<div class="mv-foot">${Object.keys(replies).map(k => `<button data-r="${k}" ${!mine ? 'disabled' : ''}>${k}</button>`).join('')}</div>`}`;
-      const msgs = box.querySelector('.mv-msgs'); msgs.scrollTop = msgs.scrollHeight;
-      box.querySelectorAll('[data-a]').forEach(b => b.onclick = () => act(c, b.dataset.a));
-      box.querySelectorAll('[data-r]').forEach(b => b.onclick = () => { c.msgs.push({ who: 'a', t: replies[b.dataset.r] }); renderChat(); userReply(c); });
-    }
-    function userReply(c) {
-      const answers = ['Listo, es la ABC123', 'Perfecto, muchas gracias', 'Ya entendí, gracias por la ayuda', 'Ok, lo reviso ahora mismo'];
-      setTimeout(() => { if (c.state !== 'mio') return; c.msgs.push({ who: 'u', t: answers[Math.floor(Math.random() * answers.length)] }); if (sel === c.id) renderChat(); }, 1300);
-    }
-    function act(c, a) {
-      if (a === 'tomar') { c.state = 'mio'; c.msgs.push({ who: 'sys', t: 'Tomado por Paula · espera ' + fmt(Date.now() - c.since) }); filter = 'mios'; setTab(); }
-      if (a === 'transferir') { transferMode = true; renderChat(); return; }
-      if (a === 'ok') { const to = $('mvTo').value, why = $('mvWhy').value; c.msgs.push({ who: 'sys', t: `Transferido a ${advisor[to]} · ${why}` }); c.area = to; c.state = 'cola'; c.since = Date.now(); transferMode = false; sel = null; }
-      if (a === 'cerrar') { c.state = 'cerrado'; c.score = 4 + Math.round(Math.random()); c.msgs.push({ who: 'b', t: 'Mov_IT: ¿Qué tan fácil fue resolver tu solicitud? (1 a 5)' }, { who: 'u', t: String(c.score) }, { who: 'sys', t: 'Chat cerrado · encuesta ' + c.score + '/5' }); resolved++; }
-      render();
-    }
-    function setTab() { document.querySelectorAll('#mv .mv-tabs button').forEach(b => b.classList.toggle('on', b.dataset.f === filter)); }
-    document.querySelectorAll('#mv .mv-tabs button').forEach(b => b.onclick = () => { filter = b.dataset.f; setTab(); render(); });
-    add(true); add(true); add(true);
-    sel = chats[0].id; render();
-    setInterval(() => { if (chats.filter(c => c.state === 'cola').length < 6) add(false); }, 7000);
-    setInterval(() => { $('mvList').querySelectorAll('.mv-item em').forEach((e, i) => { const id = +e.parentElement.dataset.id, c = chats.find(x => x.id === id); if (c && c.state === 'cola') e.textContent = fmt(Date.now() - c.since); });
-      const q = chats.filter(c => c.state === 'cola'); if (q.length) $('mvW').textContent = fmt(q.reduce((s, c) => s + Date.now() - c.since, 0) / q.length); }, 1000);
-  })();
-
-  // ---------- Vozia ----------
-  (() => {
-    const Q = [
-      { q: '¿Qué necesito para sacar el certificado de residencia?', src: [['Certificados › Residencia', 0.91, 'Documento de identidad y recibo de servicio público de los últimos 3 meses. Se pide en línea o en un punto de atención.']],
-        a: 'Para el certificado de residencia necesitas tu documento de identidad y un recibo de servicio público de los últimos tres meses. Lo puedes pedir en línea o en un punto de atención. ¿Te ayudo con algo más?' },
-      { q: '¿A qué hora atienden los sábados?', src: [['Horarios › Puntos de atención', 0.88, 'Lunes a viernes de 7:00 a. m. a 5:00 p. m.; sábados de 8:00 a. m. a 12:00 m.'], ['Horarios › Línea telefónica', 0.62, 'La línea atiende las 24 horas.']],
-        a: 'Los sábados los puntos de atención abren de 8:00 de la mañana a 12 del mediodía. La línea telefónica atiende las 24 horas.' },
-      { q: 'Quiero poner una queja contra un funcionario', src: [],
-        a: 'Te voy a comunicar con un asesor que te puede ayudar con eso. Un momento, por favor.', transfer: true },
-    ];
-    let turns = 0, transfers = 0, busy = false;
-    const pipe = s => document.querySelectorAll('#vzPipe span').forEach(x => x.classList.toggle('on', x.dataset.s === s));
-    const talk = $('vzTalk'), src = $('vzSrc');
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-    function line(who, cls) { const d = document.createElement('div'); d.className = 'line ' + cls; d.innerHTML = `<b>${who}</b><span></span>`; talk.appendChild(d); talk.scrollTop = talk.scrollHeight; return d.querySelector('span'); }
-    function renderQ() { $('vzQ').innerHTML = Q.map((x, i) => `<button data-i="${i}" ${busy ? 'disabled' : ''}>${esc(x.q)}</button>`).join(''); $('vzQ').querySelectorAll('button').forEach(b => b.onclick = () => run(Q[+b.dataset.i])); }
-    async function run(x) {
-      if (busy) return; busy = true; renderQ();
-      if (turns === 0) talk.innerHTML = '';
-      pipe('stt'); const u = line('CIUDADANO', 'us'); u.classList.add('caret');
-      for (const w of x.q.split(' ')) { u.textContent += (u.textContent ? ' ' : '') + w; await sleep(70); }
-      u.classList.remove('caret');
-      pipe('kb'); src.innerHTML = '<p class="ghost">Buscando…</p>'; await sleep(450);
-      src.innerHTML = x.src.length ? x.src.map(([t, s, txt]) => `<div class="vz-card"><b>${esc(t)}<em>${s.toFixed(2).replace('.', ',')}</em></b>${esc(txt)}</div>`).join('')
-        : '<div class="vz-none">Sin fuentes para esta pregunta. La regla obliga a transferir a un humano.</div>';
-      pipe('llm'); await sleep(300);
-      const a = line('AGENTE', 'ag'); a.classList.add('caret');
-      if (x.transfer) { a.innerHTML = '<span class="tag-x">[[TRANSFERIR]]</span>'; await sleep(250); }
-      const span = document.createElement('span'); a.appendChild(span);
-      for (const w of x.a.split(' ')) { span.textContent += (span.textContent ? ' ' : '') + w; talk.scrollTop = talk.scrollHeight; await sleep(55); }
-      a.classList.remove('caret'); pipe('tts'); await sleep(500); pipe('');
-      turns++; if (x.transfer) { transfers++; const s = line('SISTEMA', ''); s.textContent = 'Llamada transferida a la cola de asesores humanos.'; }
-      $('vzStats').innerHTML = `<span>latencia ${780 + Math.round(Math.random() * 260)} ms</span><span>turnos ${turns}</span><span>transferencias ${transfers}</span>`;
-      busy = false; renderQ();
-    }
-    renderQ();
-  })();
-
-  // ---------- Nexus Métricas ----------
-  (() => {
-    const hours = Array.from({ length: 13 }, (_, i) => i + 6);
-    const camp = {
-      'Línea ciudadana': { base: [8, 22, 41, 55, 60, 52, 38, 44, 51, 47, 36, 22, 10], ans: .93, tmo: 262, horario: [7, 18], silence: null },
-      'Cobranza': { base: [0, 6, 18, 27, 31, 26, 12, 0, 0, 21, 19, 12, 4], ans: .88, tmo: 315, horario: [7, 18], silence: [13, 14] },
-      'Soporte técnico': { base: [0, 0, 9, 14, 17, 16, 11, 13, 15, 12, 8, 0, 0], ans: .96, tmo: 401, horario: [8, 17], silence: null },
-    };
-    let cur = 'Línea ciudadana';
-    const ctl = $('mtCtl');
-    ctl.innerHTML = Object.keys(camp).map(k => `<button data-k="${k}">${k}</button>`).join('');
-    ctl.querySelectorAll('button').forEach(b => b.onclick = () => { cur = b.dataset.k; draw(); });
-    const mmss = s => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
-    function draw() {
-      ctl.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.k === cur));
-      const c = camp[cur], inb = c.base, att = inb.map(v => Math.round(v * c.ans));
-      const tin = inb.reduce((a, b) => a + b, 0), tat = att.reduce((a, b) => a + b, 0), ab = (1 - tat / tin) * 100;
-      $('mtKpis').innerHTML = `<div><small>Entrantes</small><b class="num">${tin}</b><i>+6,2 % vs. semana pasada</i></div>
-        <div><small>Atendidas</small><b class="num">${tat}</b><i>${(tat / tin * 100).toFixed(1).replace('.', ',')} %</i></div>
-        <div><small>Abandono</small><b class="num">${ab.toFixed(1).replace('.', ',')} %</b><i class="${ab > 10 ? 'bad' : ''}">${ab > 10 ? 'sobre la meta (10 %)' : 'dentro de la meta'}</i></div>
-        <div><small>TMO</small><b class="num">${mmss(c.tmo)}</b><i>método del auditor</i></div>`;
-      const W = 560, H = 190, pl = 30, pb = 22, pt = 10, max = 70, bw = (W - pl - 8) / hours.length;
-      const y = v => pt + (H - pt - pb) * (1 - v / max);
-      let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Llamadas entrantes y atendidas por hora en ${cur}">`;
-      const [h0, h1] = c.horario;
-      svg += `<rect x="${pl + (h0 - 6) * bw}" y="${pt}" width="${(h1 - h0) * bw}" height="${H - pt - pb}" fill="#FEF9C3" opacity=".55"/>`;
-      [0, 20, 40, 60].forEach(v => { svg += `<line x1="${pl}" x2="${W - 4}" y1="${y(v)}" y2="${y(v)}" stroke="#E2E8F0"/><text x="${pl - 6}" y="${y(v) + 3}" font-size="9" text-anchor="end" fill="#64748B" font-family="IBM Plex Mono, monospace">${v}</text>`; });
-      hours.forEach((h, i) => {
-        const x = pl + i * bw + 3, w = bw - 6;
-        const sil = c.silence && h >= c.silence[0] && h < c.silence[1];
-        if (sil) svg += `<rect x="${x - 1}" y="${pt}" width="${w + 2}" height="${H - pt - pb}" fill="#FEE2E2"/>`;
-        svg += `<rect x="${x}" y="${y(inb[i])}" width="${w}" height="${y(0) - y(inb[i])}" rx="2" fill="#CBD5E1"/>`;
-        svg += `<rect x="${x + w * .2}" y="${y(att[i])}" width="${w * .6}" height="${y(0) - y(att[i])}" rx="2" fill="#0F172A"/>`;
-        if (i % 2 === 0) svg += `<text x="${x + w / 2}" y="${H - 6}" font-size="9" text-anchor="middle" fill="#64748B" font-family="IBM Plex Mono, monospace">${h > 12 ? h - 12 : h}${h >= 12 ? 'p' : 'a'}</text>`;
-      });
-      svg += `</svg>`;
-      $('mtChart').innerHTML = svg + `<div style="display:flex;gap:12px;font-size:11px;color:#64748B;padding:4px 0 0;flex-wrap:wrap"><span><i style="display:inline-block;width:10px;height:10px;background:#CBD5E1;border-radius:2px"></i> Entrantes</span><span><i style="display:inline-block;width:10px;height:10px;background:#0F172A;border-radius:2px"></i> Atendidas</span><span><i style="display:inline-block;width:10px;height:10px;background:#FEF9C3;border:1px solid #FDE68A;border-radius:2px"></i> Horario de atención</span></div>`;
-      $('mtAlert').innerHTML = c.silence
-        ? `<div class="mt-alert bad"><b>⚠</b><span>Silencio de 60 min (1 p. m.–2 p. m.) dentro del horario. El perfil de las últimas 8 semanas esperaba ~27 llamadas en esa franja: posible caída de la troncal.</span></div>`
-        : `<div class="mt-alert ok"><b>✓</b><span>Sin silencios fuera de lo esperado. Las horas sin llamadas caen fuera del horario de atención y no generan aviso.</span></div>`;
-    }
-    draw();
-  })();
-
-  // ---------- Turnix ----------
-  (() => {
-    const agents = ['Ana', 'Brayan', 'Camila', 'Daniel', 'Erika', 'Felipe'];
-    const days = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
-    let rows = ['MMDTTMD', 'MDMMTTT', 'TTMDMTM', 'TTTMDNN', 'NNNNNDM', 'DMTTMMT'].map(p => p.split(''));
-    const cycle = { M: 'T', T: 'N', N: 'D', D: 'M' };
-    const need = { M: 2, T: 2, N: 1 };
-    let week = 43;
-    function draw() {
-      let h = `<colgroup><col style="width:22%">${days.map(() => '<col>').join('')}</colgroup><thead><tr><th></th>${days.map(d => `<th>${d}</th>`).join('')}</tr></thead><tbody>`;
-      rows.forEach((r, i) => { h += `<tr><th class="n">${agents[i]}</th>${r.map((s, d) => `<td class="s-${s}" data-a="${i}" data-d="${d}" role="button" tabindex="0" style="cursor:pointer" title="Cambiar turno">${s}</td>`).join('')}</tr>`; });
-      h += `<tr class="cov"><th class="n" style="font:500 11px var(--f-mono);color:#64748B">Cobertura</th>`;
-      days.forEach((_, d) => {
-        const cnt = { M: 0, T: 0, N: 0 }; rows.forEach(r => { if (cnt[r[d]] !== undefined) cnt[r[d]]++; });
-        const miss = Object.keys(need).filter(k => cnt[k] < need[k]);
-        h += `<td class="${miss.length ? 'bad' : 'okc'}" title="Mañana ${cnt.M}/2 · Tarde ${cnt.T}/2 · Noche ${cnt.N}/1">${miss.length ? 'falta ' + miss.join('') : '✓'}</td>`;
-      });
-      const t = $('txTable'); t.innerHTML = h + '</tr></tbody>';
-      t.querySelectorAll('td[data-a]').forEach(td => {
-        const go = () => { const a = +td.dataset.a, d = +td.dataset.d; rows[a][d] = cycle[rows[a][d]]; draw(); };
-        td.onclick = go; td.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
-      });
-      $('txWeek').textContent = week;
-    }
-    // La semana siguiente rota los patrones entre agentes: la cobertura se mantiene y la carga se reparte.
-    $('txGen').onclick = () => { rows = rows.slice(1).concat([rows[0]]).map(r => r.slice()); week++; draw(); };
-    draw();
-  })();
-
-  // ---------- Fluxia ----------
-  (() => {
-    const tr = { L: 'Licencias', C: 'Comparendos', M: 'Matrículas' };
-    const counter = { L: 23, C: 11, M: 7 };
-    let queue = ['L-024', 'C-012', 'L-025', 'M-008'];
-    const mods = [{ n: 1, cur: null }, { n: 2, cur: null }, { n: 3, cur: null }];
-    let hist = [];
-    $('fxKiosk').innerHTML = Object.entries(tr).map(([k, v]) => `<button data-k="${k}">${v}</button>`).join('');
-    $('fxKiosk').querySelectorAll('button').forEach(b => b.onclick = () => { const k = b.dataset.k; counter[k]++; queue.push(`${k}-${String(counter[k]).padStart(3, '0')}`); draw(); });
-    function call(m) {
-      if (!queue.length) return;
-      m.cur = queue.shift(); hist.unshift([m.cur, m.n]); hist = hist.slice(0, 4);
-      const now = $('fxNow'); now.innerHTML = `<b>${m.cur}</b><span>Módulo ${m.n}</span>`; now.classList.remove('flash'); void now.offsetWidth; now.classList.add('flash');
-      draw();
-    }
-    function draw() {
-      $('fxQueue').innerHTML = queue.length ? queue.map(t => `<span>${t}</span>`).join('') : '<span class="ghost" style="background:none">Sin turnos en espera</span>';
-      $('fxMods').innerHTML = mods.map(m => `<div class="fx-mod"><span>Módulo ${m.n} · <b class="mono">${m.cur || '—'}</b></span><button data-n="${m.n}" ${queue.length ? '' : 'disabled'}>Llamar siguiente</button></div>`).join('');
-      $('fxMods').querySelectorAll('button').forEach(b => b.onclick = () => call(mods[+b.dataset.n - 1]));
-      $('fxHist').innerHTML = hist.slice(1).map(([t, n]) => `<div><span>${t}</span><span>Módulo ${n}</span></div>`).join('');
-    }
-    const clock = () => { const d = new Date(); let h = d.getHours(), ap = h >= 12 ? 'p. m.' : 'a. m.'; h = h % 12 || 12; $('fxClock').textContent = `${h}:${String(d.getMinutes()).padStart(2, '0')} ${ap}`; };
-    clock(); setInterval(clock, 15000); draw();
-  })();
-
-  // ---------- FluxCore ----------
-  (() => {
-    const steps = ['BORRADOR', 'EN_VALIDACION', 'APROBADO'];
-    let consec = { CPIC: 123, MCI: 486, DTAI: 77 }, docs = [];
-    const log = m => { const l = $('fcLog'); const d = new Date(); l.innerHTML = `<div>${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} ${esc(m)}</div>` + l.innerHTML; };
-    function build(n) {
-      docs = [{ t: 'CPIC', name: 'Carta de porte', st: 0, num: null }];
-      for (let i = 1; i <= n; i++) docs.push({ t: 'MCI', name: `Manifiesto de carga ${i}`, st: 0, num: null });
-      docs.push({ t: 'DTAI', name: 'Declaración de tránsito', st: 0, num: null });
-      draw();
-    }
-    function draw() {
-      $('fcDocs').innerHTML = docs.map((d, i) => `<div class="fc-doc"><div><b>${d.t} · ${d.name}</b><small>${d.num ? d.num : 'sin número (se asigna al enviar)'}</small></div>
-        <div class="fc-btns">${d.st === 0 || d.st === 3 ? `<button class="go" data-i="${i}" data-a="send">Enviar a validación</button>` : ''}${d.st === 1 ? `<button data-i="${i}" data-a="ret">Devolver</button><button class="go" data-i="${i}" data-a="ok">Aprobar</button>` : ''}${d.st === 2 ? '<button disabled>PDF oficial</button>' : ''}</div>
-        <div class="fc-steps">${steps.map((s, k) => `<span class="${d.st === 3 && k === 0 ? 'ret' : k <= d.st && d.st < 3 ? 'on' : ''}">${d.st === 3 && k === 0 ? 'DEVUELTO' : s}</span>`).join('')}</div></div>`).join('');
-      $('fcDocs').querySelectorAll('button[data-a]').forEach(b => b.onclick = () => {
-        const d = docs[+b.dataset.i];
-        if (b.dataset.a === 'send') { if (!d.num) { consec[d.t]++; d.num = `${d.t}-2026-${String(consec[d.t]).padStart(6, '0')}`; log(`${d.t}: número ${d.num} asignado al enviar`); } else log(`${d.num}: reenviado a validación`); d.st = 1; }
-        if (b.dataset.a === 'ok') { d.st = 2; log(`${d.num}: aprobado por validación`); }
-        if (b.dataset.a === 'ret') { d.st = 3; log(`${d.num}: devuelto con observaciones; conserva su número`); }
-        draw();
-      });
-    }
-    $('fcMci').onchange = e => { build(+e.target.value); log(`Operación con ${e.target.value} manifiesto(s)`); };
-    build(2); log('Operación creada en borrador');
-  })();
-
-  // ---------- Nexus Horarios ----------
-  (() => {
-    const states = { Disponible: '#16A34A', Break: '#D97706', Almuerzo: '#EA580C', 'Capacitación': '#4F46E5' };
-    const team = [['Paula R.', 'Disponible', 0], ['Jorge M.', 'Break', 412], ['Valentina C.', 'Disponible', 3820], ['Ricardo P.', 'Almuerzo', 1530], ['Natalia G.', 'Capacitación', 905]];
-    let my = 'Disponible', t0 = Date.now();
-    const hms = s => [Math.floor(s / 3600), Math.floor(s / 60) % 60, s % 60].map(x => String(x).padStart(2, '0')).join(':');
-    const startAt = team.map(r => Date.now() - r[2] * 1000);
-    function draw(ping) {
-      $('hrBtns').innerHTML = Object.keys(states).map(s => `<button class="${s === my ? 'on' : ''}" data-s="${s}">${s}</button>`).join('');
-      $('hrBtns').querySelectorAll('button').forEach(b => b.onclick = () => set(b.dataset.s));
-      $('hrState').style.background = states[my]; $('hrState').querySelector('b').textContent = my;
-      $('hrTable').innerHTML = team.map((r, i) => `<tr class="${ping && i === 0 ? 'ping' : ''}"><td>${r[0]}</td><td><span class="st st-${r[1]}">${r[1]}</span></td><td class="num" data-i="${i}">${hms(Math.floor((Date.now() - startAt[i]) / 1000))}</td></tr>`).join('');
-    }
-    function set(s) {
-      if (s === my) return; my = s; t0 = Date.now(); team[0][1] = s; startAt[0] = Date.now();
-      draw(true); $('hrEv').textContent = `evento en vivo · state.changed · Paula R. → ${s}`;
-    }
-    setInterval(() => {
-      $('hrTime').textContent = hms(Math.floor((Date.now() - t0) / 1000));
-      document.querySelectorAll('#hrTable td[data-i]').forEach(td => td.textContent = hms(Math.floor((Date.now() - startAt[+td.dataset.i]) / 1000)));
-    }, 1000);
-    draw();
-  })();
+  // ---------- Galerías de capturas ----------
+  const lb = document.getElementById('lb'), lbImg = lb.querySelector('.lb-img img'), lbCap = lb.querySelector('.lb-nav p'), lbTit = lb.querySelector('.lb-top span');
+  let actual = null;
+  function mostrar(gal, i) {
+    const it = gal.items, n = (i + it.length) % it.length; gal.i = n;
+    const img = gal.el.querySelector('.gal-main img');
+    img.src = it[n].s; img.alt = it[n].c; img.width = it[n].w; img.height = it[n].h;
+    gal.el.querySelector('.gal-cap').innerHTML = `<b>${n + 1}/${it.length}</b>${esc(it[n].c)}`;
+    gal.el.querySelectorAll('.gal-thumbs button').forEach((b, k) => b.setAttribute('aria-current', k === n ? 'true' : 'false'));
+    if (lb.open && actual === gal) pintarLb();
+  }
+  function pintarLb() {
+    const it = actual.items[actual.i];
+    lbImg.src = it.s; lbImg.alt = it.c; lbImg.width = it.w; lbImg.height = it.h;
+    lbCap.textContent = it.c; lbTit.textContent = `${actual.nombre} · ${actual.i + 1}/${actual.items.length}`;
+    lb.querySelector('.lb-img').scrollTop = 0;
+  }
+  document.querySelectorAll('[data-gal]').forEach(el => {
+    const gal = { el, items: JSON.parse(el.dataset.gal), i: 0, nombre: el.dataset.nombre };
+    el.querySelectorAll('.gal-thumbs button').forEach(b => b.addEventListener('click', () => mostrar(gal, +b.dataset.i)));
+    el.querySelector('.gal-main').addEventListener('click', () => { actual = gal; pintarLb(); lb.showModal(); });
+  });
+  lb.querySelector('[data-cerrar]').addEventListener('click', () => lb.close());
+  lb.querySelector('[data-ant]').addEventListener('click', () => mostrar(actual, actual.i - 1));
+  lb.querySelector('[data-sig]').addEventListener('click', () => mostrar(actual, actual.i + 1));
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') mostrar(actual, actual.i - 1); if (e.key === 'ArrowRight') mostrar(actual, actual.i + 1); });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-img')) lb.close(); });
 })();
 </script>
 
